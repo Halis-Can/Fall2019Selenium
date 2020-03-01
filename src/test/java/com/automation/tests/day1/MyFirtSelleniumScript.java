@@ -11,5 +11,6 @@ public class MyFirtSelleniumScript {
         WebDriverManager.chromedriver().setup();
         ChromeDriver driver=new ChromeDriver();
         driver.get("https://www.google.com/");
+        //change name
     }
 }
