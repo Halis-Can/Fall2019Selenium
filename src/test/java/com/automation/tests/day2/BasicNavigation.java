@@ -11,6 +11,14 @@ public class BasicNavigation {
         WebDriver driver=new ChromeDriver();
         driver.get("https://cybertekschool.com/");// to open a website
         Thread.sleep(3000);// for demo wait 3 second!!
-        driver.close();//
+        String title=driver.getTitle();
+        String expectedTitle="Cybertek";
+        System.out.println("Title is ..." +title);//Title is ...Cybertek
+        if(expectedTitle.equals(title)){
+            System.out.println("TEST PASSED!");
+        }else{
+            System.out.println("TEST FAILED!");
+        }
+             driver.close();//
     }
 }
