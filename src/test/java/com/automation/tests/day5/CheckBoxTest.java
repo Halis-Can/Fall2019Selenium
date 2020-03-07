@@ -33,7 +33,7 @@ public class CheckBoxTest {
      System.out.println("Checkbox 1 is selected");
  }else{
      System.out.println("TEST FAILED");
-     System.out.println("Checkbox 2 is selected");
+     System.out.println("Checkbox 2 is selected ");
  }
 
         driver.quit();
