@@ -1,13 +1,12 @@
 package com.automation.tests.day5;
 
-import com.automation.utilities.BrowserUtilys;
+import com.automation.utilities.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 ////sift twice  short cut!!!!!1
-import javax.print.DocFlavor;
 import java.util.List;
 
 public class CheckBoxTest {
@@ -27,7 +26,7 @@ public class CheckBoxTest {
         WebElement checkbox1=checkBoxes.get(0);
         checkbox1.click();
 
-        BrowserUtilys.wait(2);
+        BrowserUtils.wait(2);
  if (checkbox1.isSelected()){
      System.out.println("TEST PASSED");
      System.out.println("Checkbox 1 is selected");
