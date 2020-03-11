@@ -14,6 +14,8 @@ public class BasicNavigation {
         //In selenium, everything starts from WebDriver interface'
         //ChromeDriver extends RemoteWebDriver --> implements WebDriver
         driver.get("http://google.com");//to open a website
+        Thread.sleep(3000);
+        driver.get("chrome://newtab");
         driver.manage().window().maximize();//to maximize browser
 //        driver.manage().window().fullscreen();
         Thread.sleep(3000);//for demo, wait 3 seconds
@@ -33,11 +35,11 @@ public class BasicNavigation {
         driver.navigate().to("http://amazon.com");
         Thread.sleep(3000);//for demo, wait 3 seconds
 
-        if(driver.getTitle().toLowerCase().contains("amazon")){
-            System.out.println("TEST PASSED!");
-        }else{
-            System.out.println("TEST FAILED!");
-        }
+       // if(driver.getTitle().toLowerCase().contains("amazon")){
+        //    System.out.println("TEST PASSED!");
+      //  }else{
+        //    System.out.println("TEST FAILED!");
+      //  }
         //comeback to google
         driver.navigate().back();
         Thread.sleep(3000);//for demo, wait 3 seconds

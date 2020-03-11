@@ -36,7 +36,7 @@ public class RadioButtons {
             } else {
                 //<input type="radio" id="green" name="color" disabled="">
                 System.out.println("Button is disabled, not clicked : :"+id);
-            }
+        }
             System.out.println();
 
 
