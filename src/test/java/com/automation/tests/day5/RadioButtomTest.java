@@ -1,14 +1,16 @@
 package com.automation.tests.day5;
-
 import com.automation.utilities.BrowserUtils;
-import com.automation.utilities.DriverFactory;
+import com.automation.utilities.WebDriverFactory;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
+import java.util.List;
 public class RadioButtomTest {
     public static void main(String[] args) {
-        WebDriver driver= DriverFactory.createDriver("chrome");
+        WebDriver driver = WebDriverFactory.getDriver("chrome");
         driver.get("http://practice.cybertekschool.com/radio_buttons");
         BrowserUtils.wait(2);
         //<input type="radio" id="black" name="color">

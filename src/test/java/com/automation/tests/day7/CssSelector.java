@@ -1,7 +1,8 @@
 package com.automation.tests.day7;
 
 import com.automation.utilities.BrowserUtils;
-import com.automation.utilities.DriverFactory;
+import com.automation.utilities.WebDriverFactory;
+import com.automation.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,7 +10,7 @@ import org.openqa.selenium.WebElement;
 public class CssSelector {
 
     public static void main(String[] args) {
-        WebDriver driver = DriverFactory.createDriver("chrome");
+        WebDriver driver = WebDriverFactory.getDriver("chrome");
         driver.get("http://practice.cybertekschool.com/multiple_buttons");
         WebElement heading= driver.findElement(By.cssSelector(".h3"));
         WebElement home = driver.findElement(By.cssSelector(".nav-link"));

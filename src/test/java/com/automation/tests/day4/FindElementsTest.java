@@ -29,12 +29,11 @@ public class FindElementsTest {
 
         for(int i=1; i < links.size(); i++){
             links.get(i).click();
-//            Thread.sleep(2000);
-
+            Thread.sleep(2000);
             driver.navigate().back();
-//            Thread.sleep(2000);
-            //refresh list
-            links = driver.findElements(By.tagName("a"));
+            Thread.sleep(2000);
+            //refresh list again
+            links=driver.findElements(By.tagName("a"));
         }
 
 /*

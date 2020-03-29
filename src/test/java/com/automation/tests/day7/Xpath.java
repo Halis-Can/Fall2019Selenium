@@ -1,10 +1,9 @@
 package com.automation.tests.day7;
-
 import com.automation.utilities.BrowserUtils;
-import com.automation.utilities.DriverFactory;
+import com.automation.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
+import org.openqa.selenium.support.ui.Select;
 public class Xpath {
     public static String userNameLocator = "//label[text()='Username']/following-sibling::input";//==> right click also you can use//*[@id="login"]/div[1]/div/input
     public static String passwordLocator = "//label[text()='Password']/following-sibling::input";//==>//*[@id="login"]/div[2]/div/input
@@ -12,7 +11,7 @@ public class Xpath {
 
     public static void main(String[] args) {
 
-        WebDriver driver = DriverFactory.createDriver("chrome");
+        WebDriver driver = WebDriverFactory.getDriver("chrome");
         driver.get("http://practice.cybertekschool.com/login");
         BrowserUtils.wait(3);
         driver.findElement(By.xpath(userNameLocator)).sendKeys("tomsmith");

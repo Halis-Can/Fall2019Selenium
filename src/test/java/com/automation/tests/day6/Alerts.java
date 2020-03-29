@@ -1,17 +1,18 @@
 package com.automation.tests.day6;
 
 import com.automation.utilities.BrowserUtils;
-import com.automation.utilities.DriverFactory;
+import com.automation.utilities.WebDriverFactory;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
 public class Alerts {
     public static void main(String[] args) {
-        WebDriver driver = DriverFactory.createDriver("chrome");
+        WebDriver driver = WebDriverFactory.getDriver("chrome");
         driver.get("http://practice.cybertekschool.com/javascript_alerts");
         BrowserUtils.wait(3);
         List<WebElement> buttons = driver.findElements(By.tagName("button"));

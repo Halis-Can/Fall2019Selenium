@@ -1,7 +1,8 @@
 package com.automation.tests.day6;
 
 import com.automation.utilities.BrowserUtils;
-import com.automation.utilities.DriverFactory;
+import com.automation.utilities.WebDriverFactory;
+import com.automation.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,7 +13,7 @@ import java.util.List;
 
 public class SelectByTextMultipleOptions {
     public static void main(String[] args) {
-        WebDriver driver = DriverFactory.createDriver("chrome");
+        WebDriver driver = WebDriverFactory.getDriver("chrome");
         driver.get("http://practice.cybertekschool.com/dropdown");
         BrowserUtils.wait(3);
         Select languagesSelect=new Select(driver.findElement(By.name("Languages")));

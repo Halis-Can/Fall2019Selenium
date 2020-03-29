@@ -1,6 +1,6 @@
 package com.automation.tests.warmup;
 
-import com.automation.utilities.DriverFactory;
+import com.automation.utilities.WebDriverFactory;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -25,7 +25,7 @@ public class March4 {
      * print number of results
      */
     public static void ebayTest(){
-        WebDriver driver = DriverFactory.createDriver("chrome");
+        driver = WebDriverFactory.getDriver("chrome");
         driver.get("http://ebay.com");
         driver.findElement(By.id("gh-ac")).sendKeys("java book");
         driver.findElement(By.id("gh-btn")).click();
@@ -45,7 +45,7 @@ public class March4 {
      * verify title contains search term
      */
     public static void amazonTest() throws Exception{
-        driver = DriverFactory.createDriver("chrome");
+        driver = WebDriverFactory.getDriver("chrome");
         driver.get("http://amazon.com");
         //enter text and click ENTER
         driver.findElement(By.id("twotabsearchtextbox")).sendKeys("java book", Keys.ENTER);
@@ -69,7 +69,7 @@ public class March4 {
      * verify url ends with `Selenium_(software)`
      */
     public static void wikiTest() throws Exception{
-        driver = DriverFactory.createDriver("chrome");
+        driver = WebDriverFactory.getDriver("chrome");
         driver.get("https://en.wikipedia.org/wiki/Main_Page");
 
         driver.findElement(By.id("searchInput")).sendKeys("selenium webdriver", Keys.ENTER);

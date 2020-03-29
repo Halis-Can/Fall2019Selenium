@@ -1,13 +1,13 @@
 package com.automation.tests.day3;
 
-import com.automation.utilities.DriverFactory;
+import com.automation.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class FindElementById {
     public static void main(String[] args)throws Exception {
-        WebDriver driver = DriverFactory.createDriver("chrome");
+        WebDriver driver = WebDriverFactory.getDriver("chrome");
         driver.get("http://practice.cybertekschool.com/login");
 
         WebElement userName = driver.findElement(By.name("username"));
