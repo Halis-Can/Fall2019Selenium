@@ -29,13 +29,67 @@ public class CalendarEventsPage extends AbstractPageBase {
 
     @FindBy(className = "grid-header-cell__label")
     private List<WebElement> columnNames;
-    public List<String> getColumnNames(){
+
+    @FindBy(css = "iframe[id^='oro_calendar_event_form_description-uid']")
+    private WebElement descriptionFrame;
+
+    @FindBy(css = "[id^='oro_calendar_event_form_title-uid']")
+    private WebElement title;
+
+    @FindBy(id = "tinymce")
+    private WebElement descriptionTextArea;
+
+    @FindBy(css = "[class='btn-group pull-right'] > button")
+    private WebElement saveAndClose;
+
+    @FindBy(xpath = "(//div[@class='control-label'])[1]")
+    private WebElement generalInfoTitle;
+
+    @FindBy(xpath = "//label[text()='Description']/following-sibling::div//div")
+    private WebElement generalInfoDescription;
+
+    public void enterCalendarEventTitle(String titleValue) {
+        BrowserUtils.waitForPageToLoad(20);
+        BrowserUtils.wait(2);
+        wait.until(ExpectedConditions.visibilityOf(title)).sendKeys(titleValue);
+    }
+
+    public void enterCalendarEventDescription(String description) {
+        //wait until frame is available and switch to it
+       BrowserUtils.wait(2);
+        wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(descriptionFrame));
+        descriptionTextArea.sendKeys(description);
+        driver.switchTo().defaultContent();//exit from the frame
+    }
+
+    public void clickOnSaveAndClose() {
+        BrowserUtils.wait(2);
+        wait.until(ExpectedConditions.elementToBeClickable(saveAndClose)).click();
+    }
+
+    public String getGeneralInfoTitleText() {
+        BrowserUtils.wait(2);
+        BrowserUtils.waitForPageToLoad(20);
+        return generalInfoTitle.getText();
+    }
+
+    public String getGeneralInfoDescriptionText() {
+        BrowserUtils.wait(2);
+        BrowserUtils.waitForPageToLoad(20);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//label[text()='Description']/following-sibling::div//div")));
+        return generalInfoDescription.getText();
+    }
+
+    //#############################################################
+    public List<String> getColumnNames() {
+        BrowserUtils.wait(2);
         BrowserUtils.waitForPageToLoad(20);
         return BrowserUtils.getTextFromWebElements(columnNames);
     }
 
     public String getStartTime() {
         BrowserUtils.waitForPageToLoad(20);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("[id^='time_selector_oro_calendar_event_form_start']")));
         wait.until(ExpectedConditions.visibilityOf(startTime));
         return startTime.getAttribute("value");
     }
@@ -56,7 +110,9 @@ public class CalendarEventsPage extends AbstractPageBase {
 
     public void clickToCreateCalendarEvent() {
         BrowserUtils.waitForPageToLoad(20);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("[title='Create Calendar event']")));
         wait.until(ExpectedConditions.elementToBeClickable(createCalendarEvent)).click();
+        BrowserUtils.waitForPageToLoad(20);
     }
 
     public String getStartDate() {

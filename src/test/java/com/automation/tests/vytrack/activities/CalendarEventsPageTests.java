@@ -88,7 +88,7 @@ public class CalendarEventsPageTests {
         Assert.assertTrue(titleElement.getAttribute("value").isEmpty());
         //date time syntax = https://www.journaldev.com/17899/java-simpledateformat-java-date-format
         //Default start date should be current date
-        String expectedDate = LocalDate.now().format(DateTimeFormatter.ofPattern("MMM dd, yyyy"));
+        String expectedDate = LocalDate.now().format(DateTimeFormatter.ofPattern("MMM d, yyyy"));
         String actualDate = driver.findElement(startDateBy).getAttribute("value");
         Assert.assertEquals(actualDate , expectedDate);
         String expectedTime = LocalTime.now(ZoneId.of("GMT-7")).format(DateTimeFormatter.ofPattern("h:m a"));
