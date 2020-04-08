@@ -3,7 +3,6 @@ package com.automation.tests.vytrack.activities;
 import com.automation.pages.LoginPage;
 import com.automation.pages.activities.CalendarEventsPage;
 import com.automation.tests.vytrack.AbstractTestBase;
-import com.automation.utilities.BrowserUtils;
 import com.automation.utilities.DateTimeUtilities;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -45,14 +44,14 @@ public class NewCalendarEventsTests extends AbstractTestBase {
 
     }
 
-        /**
-         * 35 minutes until 4:05
-         * Test Case: Time difference
-         * Login as sales manager
-         * Go to Activities --> Calendar Events
-         * Click on Create Calendar Event
-         * Verify that difference between start and end time is 1 hour
-         **/
+    /**
+     * 35 minutes until 4:05
+     * Test Case: Time difference
+     * Login as sales manager
+     * Go to Activities --> Calendar Events
+     * Click on Create Calendar Event
+     * Verify that difference between start and end time is 1 hour
+     **/
 
     @Test
     public void timeDifferenceTest() {
@@ -79,19 +78,19 @@ public class NewCalendarEventsTests extends AbstractTestBase {
 
     }
 
-        /**
-         * Test Case: Verify calendar events table
-         * Login as store manager
-         * Go to Activities --> Calendar Events
-         * And verify that column names displayed:
-         * |TITLE            |
-         * |CALENDAR         |
-         * |START            |
-         * |END              |
-         * |RECURRENT        |
-         * |RECURRENCE       |
-         * |INVITATION STATUS|
-         */
+    /**
+     * Test Case: Verify calendar events table
+     * Login as store manager
+     * Go to Activities --> Calendar Events
+     * And verify that column names displayed:
+     * |TITLE            |
+     * |CALENDAR         |
+     * |START            |
+     * |END              |
+     * |RECURRENT        |
+     * |RECURRENCE       |
+     * |INVITATION STATUS|
+     */
 
     @Test
     public void verifyColumnNamesTest() {
@@ -110,7 +109,7 @@ public class NewCalendarEventsTests extends AbstractTestBase {
 
     }
 
-        //    public Object[] eve
+//    public Object[] eve
 
     @Test(dataProvider = "calendarEvents")
     public void createCalendarEventTest(String title, String description) {
@@ -126,11 +125,8 @@ public class NewCalendarEventsTests extends AbstractTestBase {
         loginPage.login();
         calendarEventsPage.navigateTo("Activities", "Calendar Events");
         calendarEventsPage.clickToCreateCalendarEvent();
-        BrowserUtils.wait(2);
         calendarEventsPage.enterCalendarEventTitle(title);
-        BrowserUtils.wait(2);
         calendarEventsPage.enterCalendarEventDescription(description);
-        BrowserUtils.wait(2);
         calendarEventsPage.clickOnSaveAndClose();
 
         //verify that calendar event info is correct
@@ -145,8 +141,8 @@ public class NewCalendarEventsTests extends AbstractTestBase {
     public Object[][] calendarEvents() {
         return new Object[][]{
                 {"Daily stand-up", "Scrum meeting to provide updates"},
-             {"Sprint Review", "Scrum meeting where team discussing previous sprint"},
-            {"Sprint Planning", "Scrum meeting where team discussing backlog for following sprint"}
+                {"Sprint Review", "Scrum meeting where team discussing previous sprint"},
+                {"Sprint Planning", "Scrum meeting where team discussing backlog for following sprint"}
         };
     }
 }
