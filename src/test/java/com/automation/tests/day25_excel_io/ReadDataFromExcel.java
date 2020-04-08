@@ -55,11 +55,7 @@ File file=new File("VytrackTestUsers.xlsx");
                 System.out.print(cellValue+" | ");
             }
             System.out.println();
-
         }
-
-
-
     }
 
     @Test
