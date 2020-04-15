@@ -15,5 +15,6 @@ public class MyFirtSelleniumScript {
         //open some website
         driver.get("https://www.google.com/");
         //change name
+        driver.quit();
     }
 }
