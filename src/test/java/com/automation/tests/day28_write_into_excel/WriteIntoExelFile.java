@@ -14,7 +14,7 @@ public class WriteIntoExelFile {
 
     @Test
     public void writeIntoFileTest() throws IOException {
-        FileInputStream inputStream = new FileInputStream("VytrackTestUsers.xlsx");
+        FileInputStream inputStream = new FileInputStream("VytrackTestUsers .xlsx");
         Workbook workbook = WorkbookFactory.create(inputStream);
         inputStream.close();
         Sheet sheet = workbook.getSheet("QA3-short");
@@ -32,7 +32,7 @@ public class WriteIntoExelFile {
         newCell2.setCellValue(LocalDateTime.now().toString());//I will set current date and time info into new cell
         //I crete if I want to write something into the file
         //don't forget to close excel file if you opened it
-        FileOutputStream outputStream = new FileOutputStream("VytrackTestUsers.xlsx");
+        FileOutputStream outputStream = new FileOutputStream("VytrackTestUsers .xlsx");
         workbook.write(outputStream);//write changes
         workbook.close();//close when everything is done
         outputStream.close();
@@ -44,5 +44,6 @@ public class WriteIntoExelFile {
          *  operations, updates or reads should be performed on the
          *  Workbook.
          */
+
     }
 }
